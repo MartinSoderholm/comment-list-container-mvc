@@ -1,0 +1,57 @@
+// Reset
+@import "bootstrap/normalize";
+// Bootstrap core
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/forms";
+
+
+body {
+    background-color: #eee;
+}
+
+.comments {
+    max-width: 500px;
+    margin: 0 auto;
+
+    .control-bar {
+        padding: 1rem;
+        align-items: center;
+        background: rgba(0,0,0,0.2);
+        border-bottom: 1px solid #666;
+    }
+}
+
+.comment-list {
+    padding: 0;
+    list-style: none;
+
+    .comment {
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #ccc;
+
+        &:focus {
+            box-shadow: 0 0 20px -3px #00daff inset;
+            outline: none;
+        }
+
+        &:nth-child(odd) {
+            background-color: rgba(255,255,255, 0.5);
+        }
+
+        .author {
+            display: block;
+            font-size: 80%;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            &:before {
+                content: "– ";
+            }
+        }
+
+    }
+
+}
