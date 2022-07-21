@@ -94,7 +94,7 @@ export function CommentListControlbar(props) {
   return (
     <div {...restProps}>
       <FormSelect
-        className="filter-author"
+        className="filter-author d-inline-block w-auto"
         value={selectedAuthor || ''}
       >
         <option value="">--- Filter author ---</option>

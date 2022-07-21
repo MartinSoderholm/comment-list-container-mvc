@@ -112,7 +112,7 @@ export class FormSelect extends AbstractInput {
 
   render() {
     const { value, children, ...attrs } = this.props;
-    attrs.className = classNames('form-control', attrs.className);
+    attrs.className = classNames('form-select', attrs.className);
     return (
       <select
         value={value}

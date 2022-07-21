@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 const config = {
@@ -10,9 +9,9 @@ const config = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist',
+    static: abs('dist'),
     hot: true,
-    port: 8080
+    port: 8080,
   },
   module: {
     rules: [
@@ -29,15 +28,27 @@ const config = {
           'style-loader',
           'css-loader',
           {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: () => [
+                  require('autoprefixer')
+                ]
+              }
+            }
+          },
+          {
             loader: 'sass-loader',
             options: {
-              includePaths: [
-                abs('src'),
-                abs('node_modules'),
-                abs('node_modules/bootstrap-sass/assets/stylesheets')
-              ],
-              precision: 8
-              // sourceMap: true
+              sassOptions: {
+                includePaths: [
+                  abs('src'),
+                  abs('node_modules'),
+                  abs('node_modules/bootstrap-sass/assets/stylesheets')
+                ],
+                precision: 8
+                // sourceMap: true
+              }
             }
           }
         ]
@@ -45,12 +56,9 @@ const config = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Working example of minimal MVC'
     }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
   ],
   output: {
     filename: '[name].bundle.js',

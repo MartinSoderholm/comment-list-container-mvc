@@ -1,9 +1,16 @@
 {
   "presets": [
-    "react",
-    ["env", {"targets": {"browsers": ["last 2 versions", "ie 11"]}}]
+    [
+      "@babel/preset-env", {
+        "debug": false,
+        "useBuiltIns": "entry",
+        "corejs": 3,
+        "targets": {
+          "browsers": ["last 2 versions"]
+        }
+      }
+    ],
+    "@babel/preset-react"
   ],
-  "plugins": [
-    "transform-object-rest-spread"
-  ]
+  "plugins": []
 }

@@ -7,6 +7,6 @@ Working example of minimal MVC, as described in article:
 ## Install & run
 
 1. Clone repo
-2. `npm install`
+2. `npm ci`
 3. `npm start`
 4. Open `http://localhost:8080/` in browser
